@@ -53,7 +53,7 @@ The dataset contains **7,500+ property transactions** with comprehensive propert
 - **Missing Value Handling**: Comprehensive imputation strategies
 - **Date Feature Engineering**: Extract year, month from sale dates
 - **Floor Level Processing**: Parse floor ranges (e.g., "06 to 10" → start_floor, end_floor)
-- **Tenure Analysis**: Extract lease duration and remaining years
+- **Tenure Analysis**: Extract lease duration and remaining years from the raw data for tenure
 
 ### Advanced Feature Engineering
 - **Target Encoding**: For high-cardinality variables (Project Name, Street Name)
@@ -83,16 +83,14 @@ df['Project_Name_Encoded'] = df['Project Name'].map(train_target_means)
 ```
 
 ### 3. Model Selection & Training
-- **Linear Models**: Linear Regression, Lasso Regression
+- **Linear Models**: Linear Regression
 - **Tree-Based Models**: Random Forest, Gradient Boosting, Decision Trees
 - **Instance-Based**: K-Nearest Neighbors
-- **Support Vector**: SVR with different kernels
 
 ### 4. Evaluation Metrics
 - **Mean Absolute Error (MAE)**
 - **Root Mean Square Error (RMSE)**
 - **R² Score**
-- **Mean Absolute Percentage Error (MAPE)**
 
 ## 🚀 Installation & Setup
 
@@ -151,32 +149,20 @@ models = {
 ## 📈 Model Performance
 
 ### Best Performing Models
-| Model | MAE | RMSE | R² Score |
+| Model | MSE | RMSE | R² Score |
 |-------|-----|------|----------|
-| **Gradient Boosting** | $XXX,XXX | $XXX,XXX | 0.XX |
-| **Random Forest** | $XXX,XXX | $XXX,XXX | 0.XX |
-| **Linear Regression** | $XXX,XXX | $XXX,XXX | 0.XX |
+| **Gradient Boosting** | 0.0007| 0.0270 | 0.9970 |
+| **Random Forest** | 0.0007 | 0.0270 | 0.9970 |
+| **Linear Regression** | 0.0625 | 0.2500 | 0.7455 |
 
 ### Feature Importance
 Top predictive features identified:
 1. **Project Name** (Target Encoded)
 2. **Area (SQFT)**
-3. **Postal District**
-4. **Remaining Lease Years**
-5. **Market Segment**
+3. **Type of Sale**
+4. **Year**
+5. **Street Name**
 
-## 🔍 Key Insights
-
-### Market Trends
-- **Central vs. Regional**: Core Central Region commands premium prices
-- **Lease Impact**: Freehold properties significantly outvalue leasehold
-- **Size Effect**: Strong positive correlation between area and price
-- **Location Premium**: Postal districts 9, 10, 11 show highest average prices
-
-### Technical Findings
-- **Target Encoding**: 40% improvement over one-hot encoding for high-cardinality variables
-- **Feature Engineering**: Tenure-based features provide strong predictive power
-- **Data Quality**: Proper handling of duplicates and missing values crucial for model performance
 
 ## 📁 Project Structure
 
@@ -228,22 +214,3 @@ property-price-prediction/
 - [ ] **Pipeline Automation**: MLOps pipeline with automated retraining
 - [ ] **Model Interpretability**: SHAP analysis for feature explanations
 - [ ] **A/B Testing**: Model performance monitoring in production
-
----
-
-## 👨‍💻 Author
-
-**Shreya Sriram**
-- 📧 Email: [contact information]
-- 🎓 Institution: National University of Singapore
-- 📚 Course: Data Science Projects in Practice
-
----
-
-## 📄 License
-
-This project is part of academic coursework at NUS. Please refer to course guidelines for usage permissions.
-
----
-
-*Last Updated: September 2025*
