@@ -151,9 +151,11 @@ models = {
 ### Best Performing Models
 | Model | MSE | RMSE | R² Score |
 |-------|-----|------|----------|
-| **Gradient Boosting** | 0.0007| 0.0270 | 0.9970 |
-| **Random Forest** | 0.0007 | 0.0270 | 0.9970 |
-| **Linear Regression** | 0.0625 | 0.2500 | 0.7455 |
+| **Random Forest** | 0.0052| 0.0723 | 0.9786 |
+| **Decision Tree** | 0.0100| 0.1002 | 0.9588 |
+| **Gradient Boosting** | 0.0126| 0.1120 | 0.9485 |
+| **K Nearest Neighbors** | 0.0713 | 0.2670 | 0.7073|
+| **Linear Regression** | 0.0898 | 0.2996 | 0.6314 |
 
 ### Feature Importance
 Top predictive features identified:
