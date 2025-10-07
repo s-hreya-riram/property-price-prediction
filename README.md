@@ -141,6 +141,7 @@ for col in ['Project Name', 'Street Name']:
 # Model training and evaluation
 models = {
     'Random Forest': RandomForestRegressor(n_estimators=100),
+    'LightGBM': LGBMRegressor(n_estimators=100),
     'Gradient Boosting': GradientBoostingRegressor(),
     'Linear Regression': LinearRegression()
 }
@@ -152,6 +153,7 @@ models = {
 | Model | MSE | RMSE | R² Score |
 |-------|-----|------|----------|
 | **Random Forest** | 0.0052| 0.0723 | 0.9786 |
+| **LightGBM** | 0.0079 | 0.0888 | 0.9676 |
 | **Decision Tree** | 0.0100| 0.1002 | 0.9588 |
 | **Gradient Boosting** | 0.0126| 0.1120 | 0.9485 |
 | **K Nearest Neighbors** | 0.0713 | 0.2670 | 0.7073|
@@ -181,24 +183,6 @@ property-price-prediction/
 ├── .gitignore                 # Git ignore rules
 └── .git/                      # Git repository
 ```
-
-## 🚧 Technical Challenges
-
-### 1. High-Cardinality Categorical Variables
-**Challenge**: 2,242+ unique project names and 829+ street names
-**Solution**: Target encoding with robust unseen category handling
-
-### 2. Data Leakage Prevention
-**Challenge**: Ensuring no test data information leaks into training
-**Solution**: Strict train-only target encoding with global mean fallbacks
-
-### 3. Index Misalignment
-**Challenge**: DataFrame concatenation causing NaN value creation
-**Solution**: Safe concatenation with proper index management
-
-### 4. Feature Engineering Complexity
-**Challenge**: Complex tenure parsing and floor level extraction
-**Solution**: Robust parsing functions with comprehensive error handling
 
 ## 🔮 Future Improvements
 

@@ -1,0 +1,44 @@
+\documentclass{article}
+\usepackage{graphicx} % Required for inserting images
+
+\title{DSS5105 Assignment-1 \\ SG Private Housing Transaction Prediction}
+\author{Shreya Sriram}
+\date{October 8, 2025}
+
+\begin{document}
+
+\maketitle
+
+\section{Analysis}
+\subsection{Top 3 Key Factors}
+Based on the Random Forest feature importance analysis in Step 4:
+
+\begin{itemize}
+\item \textbf{Project Name (Encoded):} Importance score of 0.4948. Project reputation significantly impacts property values, as premium developments by established developers command higher prices due to brand trust and quality assurance.
+
+\item \textbf{Area (SQFT):} Importance score of 0.3926. Property size shows the strongest intuitive relationship with price - larger units directly correlate with higher transaction values, reflecting Singapore's premium on space.
+
+\item \textbf{Type of Sale (Resale):} Importance score of 0.0213. Resale properties exhibit different pricing dynamics compared to new sales, often reflecting market conditions and property age factors.
+\end{itemize}
+
+\subsection{Patterns & Trends}
+
+\begin{itemize}
+\item \textbf{Location premium}: Prime districts (9-11) command 150-200\% premiums over outer districts (23-27), demonstrating extreme location-based pricing tiers [Section 3.1].
+
+\item \textbf{Seasonal effects}: November shows the highest median prices and peak transaction volumes, with Q4 commanding 8-12\% seasonal premiums over other quarters [Section 3.4].
+
+\item \textbf{Tenure impact}: Long-term leasehold comprises 59.68\% of properties, with freehold commanding 20-30\% premiums over short-lease properties [Section 3.3].
+
+\item \textbf{Size correlation}: Larger units show exponential price increases, indicating the concentration of the luxury market [Section 2.4].
+
+\end{itemize}
+
+\subsection{Buyer Recommendations}
+
+\begin{itemize}
+    \item \textbf{Districts}: Focus on Districts such as 17, 25 offering average SGD 1.1M properties, representing 50\%+ savings versus premium districts 9-10. [Section 3.1]
+    \item \textbf{Purchase during low demand months}: Purchase during August, December, or January: Purchasing property in August/December/January is a good idea, as the mean and median property prices are the lowest in these months, likely owing to demand being low during these months (festive or school beginning). [Section 3.4]
+    \item \textbf{Consider a smaller property size}: Intuitively smaller properties cost less; they can offer considerable savings over a period of time. [Section 2.4]
+\end{itemize}
+\end{document}
