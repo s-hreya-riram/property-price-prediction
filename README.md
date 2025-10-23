@@ -5,15 +5,9 @@ A comprehensive machine learning project to predict residential property prices 
 ## 📋 Table of Contents
 - [Project Overview](#-project-overview)
 - [Dataset](#-dataset)
-- [Features](#-features)
 - [Methodology](#-methodology)
 - [Installation & Setup](#-installation--setup)
-- [Usage](#-usage)
-- [Model Performance](#-model-performance)
-- [Key Insights](#-key-insights)
 - [Project Structure](#-project-structure)
-- [Technical Challenges](#-technical-challenges)
-- [Future Improvements](#-future-improvements)
 
 ## 🎯 Project Overview
 
@@ -93,15 +87,7 @@ python -m venv .venv
 source .venv/bin/activate  # On Windows: .venv\Scripts\activate
 
 # Install dependencies
-pip install pandas numpy matplotlib seaborn scikit-learn jupyter
-```
-
-## 💻 Usage
-
-### Quick Start
-```bash
-# Launch Jupyter Notebook
-jupyter notebook Assignment-1.ipynb
+python -m pip install -r requirements.txt
 ```
 
 ## 📁 Project Structure
@@ -110,13 +96,14 @@ jupyter notebook Assignment-1.ipynb
 property-price-prediction/
 ├── README.md
 ├── Assignment-1.ipynb         # Main analysis notebook
+├── Assignment-1.html          # HTML equivalent (export) of the analysis notebook
 ├── Assignment.pdf             # Project description
 ├── Analysis.pdf               # PDF with the written answers to the questions of interest
 ├── Analysis.TeX               # TeX file used to generate the PDF
 ├── data/
 │   ├── train.csv              # Training dataset
 │   ├── test.csv               # Test dataset for predictions
-│   └── final_predictions.csv        # Model predictions output with just the predictions
+│   └── final_predictions.csv  # Model predictions output with just the predictions
 │   └── final_predictions_with_other_features.csv        # Model predictions output with the predictions alongside the other test features
 ├── requirements.txt           # Exhaustive list of project requirements
 ├── .gitignore                 # Git ignore rules
