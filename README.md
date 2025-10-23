@@ -47,25 +47,6 @@ The dataset contains **7,500+ property transactions** with comprehensive propert
 | **Market Segment** | Core/Rest/Outside Central Region | Categorical |
 | **Floor Level** | Property floor range | Categorical |
 
-## 🔧 Features
-
-### Data Preprocessing
-- **Missing Value Handling**: Comprehensive imputation strategies
-- **Date Feature Engineering**: Extract year, month from sale dates
-- **Floor Level Processing**: Parse floor ranges (e.g., "06 to 10" → start_floor, end_floor)
-- **Tenure Analysis**: Extract lease duration and remaining years from the raw data for tenure
-
-### Advanced Feature Engineering
-- **Target Encoding**: For high-cardinality variables (Project Name, Street Name)
-- **One-Hot Encoding**: For low-cardinality categoricals
-- **Lease Features**: Remaining lease years, lease maturity ratios
-- **Location Features**: Postal district analysis and regional grouping
-
-### Data Quality Assurance
-- **Duplicate Detection**: Automated duplicate removal from training data
-- **Index Alignment**: Safe DataFrame concatenation to prevent data corruption
-- **Unseen Category Handling**: Robust target encoding with fallback strategies
-
 ## 🔬 Methodology
 
 ### 1. Exploratory Data Analysis
@@ -91,6 +72,9 @@ df['Project_Name_Encoded'] = df['Project Name'].map(train_target_means)
 - **Mean Absolute Error (MAE)**
 - **Root Mean Square Error (RMSE)**
 - **R² Score**
+
+### 5. Feature Importance Analysis using SHAP
+Identified the most important features in the model
 
 ## 🚀 Installation & Setup
 
@@ -120,83 +104,20 @@ pip install pandas numpy matplotlib seaborn scikit-learn jupyter
 jupyter notebook Assignment-1.ipynb
 ```
 
-### Running the Complete Pipeline
-1. **Data Loading**: Load and concatenate train/test datasets
-2. **EDA**: Run exploratory data analysis cells
-3. **Preprocessing**: Execute data cleaning and feature engineering
-4. **Model Training**: Train multiple regression models
-5. **Evaluation**: Compare model performance and select best model
-6. **Prediction**: Generate predictions for test dataset
-
-### Key Code Sections
-```python
-# Load data
-df = concat_train_test('data/train.csv', 'data/test.csv')
-
-# Target encoding with unseen category handling
-for col in ['Project Name', 'Street Name']:
-    target_means = train_data.groupby(col)['Price'].mean()
-    df[col + '_Encoded'] = df[col].map(target_means).fillna(global_mean)
-
-# Model training and evaluation
-models = {
-    'Random Forest': RandomForestRegressor(n_estimators=100),
-    'LightGBM': LGBMRegressor(n_estimators=100),
-    'Gradient Boosting': GradientBoostingRegressor(),
-    'Linear Regression': LinearRegression()
-}
-```
-
-## 📈 Model Performance
-
-### Best Performing Models
-| Model | MSE | RMSE | R² Score |
-|-------|-----|------|----------|
-| **Random Forest** | 0.0052| 0.0723 | 0.9786 |
-| **LightGBM** | 0.0079 | 0.0888 | 0.9676 |
-| **Decision Tree** | 0.0100| 0.1002 | 0.9588 |
-| **Gradient Boosting** | 0.0126| 0.1120 | 0.9485 |
-| **K Nearest Neighbors** | 0.0713 | 0.2670 | 0.7073|
-| **Linear Regression** | 0.0898 | 0.2996 | 0.6314 |
-
-### Feature Importance
-Top predictive features identified:
-1. **Project Name** (Target Encoded)
-2. **Area (SQFT)**
-3. **Type of Sale**
-4. **Year**
-5. **Street Name**
-
-
 ## 📁 Project Structure
 
 ```
 property-price-prediction/
 ├── README.md
-├── Assignment-1.ipynb          # Main analysis notebook
-├── Assignment.pdf              # Project requirements
+├── Assignment-1.ipynb         # Main analysis notebook
+├── Assignment.pdf             # Project description
+├── Analysis.pdf               # PDF with the written answers to the questions of interest
+├── Analysis.TeX               # TeX file used to generate the PDF
 ├── data/
 │   ├── train.csv              # Training dataset
 │   ├── test.csv               # Test dataset for predictions
-│   └── predictions.csv        # Model predictions output
-├── .venv/                     # Python virtual environment
+│   └── final_predictions.csv        # Model predictions output with just the predictions
+│   └── final_predictions_with_other_features.csv        # Model predictions output with the predictions alongside the other test features
+├── requirements.txt           # Exhaustive list of project requirements
 ├── .gitignore                 # Git ignore rules
-└── .git/                      # Git repository
 ```
-
-## 🔮 Future Improvements
-
-### Model Enhancements
-- [ ] **Ensemble Methods**: Implement stacking/blending of top models
-- [ ] **Deep Learning**: Explore neural networks for complex feature interactions
-- [ ] **Time Series**: Incorporate temporal trends and seasonality
-
-### Feature Engineering
-- [ ] **Geospatial Features**: Distance to MRT stations, schools, shopping centers
-- [ ] **Market Conditions**: Economic indicators, interest rates
-- [ ] **Property Age**: Building completion date and age effects
-
-### Technical Improvements
-- [ ] **Pipeline Automation**: MLOps pipeline with automated retraining
-- [ ] **Model Interpretability**: SHAP analysis for feature explanations
-- [ ] **A/B Testing**: Model performance monitoring in production
