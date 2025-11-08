@@ -5,3 +5,4 @@ __pycache__/
 Source.gv
 venv/
 Source.gv
+*.png
