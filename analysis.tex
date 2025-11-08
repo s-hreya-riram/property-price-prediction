@@ -11,34 +11,39 @@
 
 \section{Analysis}
 \subsection{Top 3 Key Factors}
-Based on the SHAP (SHapley Additive exPlanations) analysis of the optimized Gradient Boosting Tree (GBT) model, the following three factors were found to have the highest mean absolute contribution to the transaction price:
+Based on SHAP (SHapley Additive exPlanations) analysis of the XGBRegressor model, the following three factors have the highest mean absolute contribution to transaction price:
 
 \begin{itemize}
-\item \textbf{Area (SQFT):} SHAP importance score of 0.261558. Property size shows the strongest intuitive relationship with price, confirming that Area is the primary fundamental driver. Larger units directly correlate with higher transaction values, reflecting Singapore's premium on space.
 
-\item \textbf{Project Name (Encoded):} SHAP importance score of 0.123095. This factor captures the residual price premium associated with specific developer reputation and amenity levels, after accounting for size and general location. It signifies the market's trust in established brands and quality assurance.
+\item \textbf{Area (SQFT)} (SHAP: 0.1683) - Property size is the primary price driver, with larger units commanding proportionally higher values, reflecting Singapore's space premium.
 
-\item \textbf{Type of Sale (Resale):} SHAP importance score of 0.088324. This factor segments the market based on transaction type, reflecting the distinct pricing dynamics between new launches (primary market) and resale properties (secondary market), often reflecting market conditions and property age factors.
+\item \textbf{Project Name} (SHAP: 0.1076) - Captures developer brand premium and development quality. Established projects command higher prices due to reputation and amenity standards.
+
+\item \textbf{Type of Sale} (SHAP: 0.1013) - Distinguishes primary market (new launches) from secondary market (resale), reflecting different pricing dynamics. New launches typically command premiums due to modern amenities and market positioning.
+
 \end{itemize}
 
-\subsection{Patterns & Trends}
+\subsection{Patterns \& Trends}
 
 \begin{itemize}
-\item \textbf{Location premium}: Prime districts (9-11) command 150-200\% premiums over outer districts (23-27), demonstrating extreme location-based pricing tiers [Section 3.1].
+\item \textbf{Location premium}: Prime districts (6, 7, 9, 10 - CCR areas) command 2.5-3x prices compared to OCR districts (17, 18, 27, 28), demonstrating Singapore's location-based pricing tiers [Section 2.6].
 
-\item \textbf{Seasonal effects}: November shows the highest median prices and peak transaction volumes, with Q4 commanding 8-12\% seasonal premiums over other quarters [Section 3.4].
+\item \textbf{Seasonal effects}: Q4 (especially November) shows 8-12\% price premiums with peak transaction volumes, suggesting strategic timing for sellers [Section 3.2].
 
-\item \textbf{Tenure impact}: Long-term leasehold comprises 59.68\% of properties, with freehold commanding 20-30\% premiums over short-lease properties [Section 3.3].
+\item \textbf{Tenure impact}: Long-term leasehold dominates (59.6\%), followed by freehold (29.1\%). Freehold properties command an 18.5\% median price premium (\$1.80M vs \$1.52M) despite strong functional equivalence for buyers with 20-30 year horizons [Section 3.1].
 
-\item \textbf{Size correlation}: Larger units show exponential price increases, indicating the concentration of the luxury market [Section 2.4].
+\item \textbf{Market segmentation}: 71.2\% of properties fall under \$2M, with only 2.3\% exceeding \$5M, indicating concentrated mid-market activity [Fig 4].
 
 \end{itemize}
 
 \subsection{Buyer Recommendations}
 
 \begin{itemize}
-    \item \textbf{Districts}: Focus on Districts such as 17, 25 offering average SGD 1.1M properties, representing 50\%+ savings versus premium districts 9-10. [Section 3.1]
-    \item \textbf{Purchase during low demand months}: Purchase during August, December, or January: Purchasing property in August/December/January is a good idea, as the mean and median property prices are the lowest in these months, likely owing to demand being low during these months (festive or school beginning). [Section 3.4]
-    \item \textbf{Consider a smaller property size}: Intuitively smaller properties cost less; they can offer considerable savings over a period of time. [Section 2.4]
+    \item \textbf{Target emerging districts}: Focus on districts 17, 18, 27, 28 offering average \$1.2M properties, representing 50\%+ savings versus premium districts 6, 7, 9, 10 [Section 2.6].
+    
+    \item \textbf{Time purchases strategically}: Avoid November (peak prices). Purchase during August, December, or January when median prices drop 5-8\% due to lower demand during festive seasons and school year transitions [Section 3.2].
+    
+    \item \textbf{Optimize size}: Target the 1,000-1,500 sqft range for optimal value at \$1,535 per sqft. Avoid units under 500 sqft (scarcity premium at \$1,746 per sqft) and properties over 5,000 sqft (luxury premium at \$2,281+ per sqft) unless specific needs justify the cost. [Section 2.5].
+
 \end{itemize}
 \end{document}

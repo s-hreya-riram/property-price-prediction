@@ -7594,7 +7594,7 @@ a.anchor-link {
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=5d58b6db">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=f6ccf33c">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -14044,7 +14044,7 @@ Index: 3860, Project Name: NASSIM PARK RESIDENCES, Street Name: NASSIM ROAD
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [66]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [72]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Final predictions on test set</span>
@@ -14055,8 +14055,8 @@ Index: 3860, Project Name: NASSIM PARK RESIDENCES, Street Name: NASSIM ROAD
     <span class="s1">'Transacted Price ($)'</span><span class="p">:</span> <span class="n">y_pred</span>
 <span class="p">})</span>
 
-<span class="n">predictions_df</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="s1">'data/final_predictions.csv'</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">"</span><span class="se">\n</span><span class="s2">Predictions written to 'data/final_predictions.csv'"</span><span class="p">)</span>
+<span class="n">predictions_df</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="s1">'data/predictions.csv'</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"</span><span class="se">\n</span><span class="s2">Predictions written to 'data/predictions.csv'"</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -14070,7 +14070,7 @@ Index: 3860, Project Name: NASSIM PARK RESIDENCES, Street Name: NASSIM ROAD
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
 <pre>
-Predictions written to 'data/final_predictions.csv'
+Predictions written to 'data/predictions.csv'
 </pre>
 </div>
 </div>
@@ -14300,10 +14300,10 @@ Over $10M:
 </table>
 <p><strong>Key Insights:</strong></p>
 <ul>
-<li>The model performs exceptionally well on properties under $10M (99.6% of the test set) with an RMSE of **$300,705**</li>
-<li>Performance degrades significantly for ultra-luxury properties (&gt;$10M), which represent only 18 properties (0.4% of test set)</li>
+<li>The model performs exceptionally well on properties under \$10M (99.6% of the test set) with an RMSE of <strong>\$300,705</strong></li>
+<li>Performance degrades significantly for ultra-luxury properties (&gt; \$10M), which represent only 18 properties (0.4% of test set)</li>
 <li>This performance gap is attributable to:<ol>
-<li><strong>Insufficient training data</strong>: Only 298 properties (0.35%) in training are &gt;$10M</li>
+<li><strong>Insufficient training data</strong>: Only 298 properties (0.35% ) in training are &gt; \$10M</li>
 <li><strong>Data quality issues</strong>: Several high-error predictions have generic "RESIDENTIAL APARTMENTS" as the project name</li>
 <li><strong>Different pricing dynamics</strong>: Ultra-luxury properties are driven by factors not captured in standard features (prestige, unique amenities, views)</li>
 </ol>
@@ -14518,7 +14518,7 @@ As identified by SHAP analysis, the most influential features impacting the mode
 <li>Type of Sale: SHAP importance score of 0.101283; this factor segments the market based on transaction type, reflecting the distinct pricing dynamics between new launches (primary market) and resale properties (secondary market), often reflecting market conditions and property age factors.</li>
 </ul>
 <p><strong>Limitations for Luxury Properties:</strong>
-While these features work well for typical properties, the ultra-luxury segment (&gt;$10M) likely requires additional features not present in the dataset:</p>
+While these features work well for typical properties, the ultra-luxury segment (&gt;\$10M) likely requires additional features not present in the dataset:</p>
 <ul>
 <li>Specific view premiums (Marina Bay, Singapore River, Sentosa views)</li>
 <li>Floor level premiums (penthouse vs. mid-level)</li>
@@ -14535,13 +14535,13 @@ While these features work well for typical properties, the ultra-luxury segment 
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h3 id="Step-5.2:-Conclusion">Step 5.2: Conclusion<a class="anchor-link" href="#Step-5.2:-Conclusion">¶</a></h3><p>The model provides reliable predictions for <strong>99.6% of the market</strong> (properties under $10M) with an overall RMSE of $300,705. The elevated overall RMSE is driven by 18 ultra-luxury properties (&gt;$10M, 0.4% of test set) where the model struggles due to insufficient training examples and missing features specific to the luxury segment. For practical applications, this model is well-suited for mainstream property valuation, with the caveat that specialized approaches would be needed for the ultra-luxury market segment.</p>
-<p><strong>Recommendation:</strong> For production use, consider developing a separate model or ensemble approach specifically for properties above $10M, incorporating additional features relevant to luxury real estate pricing.</p>
+<h3 id="Step-5.2:-Conclusion">Step 5.2: Conclusion<a class="anchor-link" href="#Step-5.2:-Conclusion">¶</a></h3><p>The model provides reliable predictions for <strong>99.6% of the market</strong> (properties under \$10M) with an overall RMSE of \$300,705. The elevated overall RMSE is driven by 18 ultra-luxury properties (&gt;\$10M, 0.4% of test set) where the model struggles due to insufficient training examples and missing features specific to the luxury segment. For practical applications, this model is well-suited for mainstream property valuation, with the caveat that specialized approaches would be needed for the ultra-luxury market segment.</p>
+<p><strong>Recommendation:</strong> For production use, consider developing a separate model or ensemble approach specifically for properties above \$10M, incorporating additional features relevant to luxury real estate pricing.</p>
 </div>
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=a8d71deb">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=e9cb23f0">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
